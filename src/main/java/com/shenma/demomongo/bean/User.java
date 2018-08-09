@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.io.Serializable;
 
 //@Document(collection = "collection_user")
-@Document(collection = "user")
+@Document()
 @Getter
 @Setter
 @AllArgsConstructor

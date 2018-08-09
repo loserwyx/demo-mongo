@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoMongoApplication {
 
     public static void main(String[] args) {
+        System.out.println("启动项目");
         SpringApplication.run(DemoMongoApplication.class, args);
     }
 }

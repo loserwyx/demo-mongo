@@ -7,6 +7,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,9 +23,15 @@ public class TestMongo {
      * 插入一条记录
      */
     @Test
+    @Transactional
     public void TestSave() {
-        User user = new User(1000L, "wangyx", 23, "男");
+
+        User user = new User(1004L, "wangyx", 23, "男");
         userDao.insert(user);
+        int falg = 1 / 0;
+        User user2 = new User(1005L, "wangyx", 23, "男");
+        userDao.insert(user2);
+
         System.err.println("保存成功！");
     }
 
@@ -46,14 +54,14 @@ public class TestMongo {
         System.err.println("size: " + users.size());
     }
 
-    /**
-     * 根据id删除对应User实体
-     */
-    @Test
-    public void TestDelete() {
-        userDao.delete(1000L);
-        System.err.println("删除成功！");
-    }
+//    /**
+//     * 根据id删除对应User实体
+//     */
+//    @Test
+//    public void TestDelete() {
+//        userDao.delete(1000L);
+//        System.err.println("删除成功！");
+//    }
 
     /**
      * 删除集合
